@@ -7,7 +7,7 @@ file_list=()
 # Properly read null-delimited output into array
 while IFS= read -r -d '' file; do
     file_list+=("$file")
-done < <(mdfind -0 -name "$searchTerm")
+done < <(mdfind -0 -name "$searchTerm" 2>/dev/null)
 
 echo "Found ${#file_list[@]} files associated with '$searchTerm'"
 
